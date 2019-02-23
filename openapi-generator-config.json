@@ -1,0 +1,6 @@
+{
+    "packageName": "quetzal.openapi_client",
+    "projectName": "quetzal-openapi-client",
+    "packageVersion": "0.1.0",
+    "library": "urllib3"
+}
