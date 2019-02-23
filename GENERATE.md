@@ -10,3 +10,8 @@ export GIT_REPO_ID=quetzal-openapi-client
 3. Review changes with `git status`.
 4. Add update notes on `CHANGELOG.md`
 5. Commit/push changes with `./git_push.sh $GIT_USER_ID $GIT_REPO_ID "<your commit message>"`
+6. (Optional) tag a release and push the tag. Use `v` as a prefix:
+```
+git tag -a vX.Y.Z -m "<Some meaningful tag message>"
+git push --tags
+```

@@ -59,10 +59,6 @@ ${GENERATE_CMD} \
     -c ${WORK_DIR}/openapi-generator-config.json \
     -o ${PWD}
 
-echo "Moving docs..."
-mkdir -p docs/markdown
-mv -v docs/*.md docs/markdown
-
 echo "Saving reference..."
 cat >> quetzal/openapi_client/__init__.py <<EOF
 
