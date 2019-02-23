@@ -71,3 +71,17 @@ cat >> quetzal/openapi_client/__init__.py <<EOF
 # a git commit or Docker image ID used to generate this code with openapi-generator-cli
 __openapi_generator_cli_version__ = "${REFERENCE}"
 EOF
+
+if [[ -z ${GIT_REPO_ID} ]]
+then
+    echo "GIT_REPO_ID not defined, README.md will have some weird references."
+else
+    sed -i '' -e 's/GIT_REPO_ID/'"$GIT_REPO_ID"'/g' ./README.md
+fi
+
+if [[ -z ${GIT_USER_ID} ]]
+then
+    echo "GIT_USER_ID not defined, README.md will have some weird references."
+else
+    sed -i '' -e 's/GIT_USER_ID/'"$GIT_USER_ID"'/g' ./README.md
+fi
