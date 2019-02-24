@@ -68,6 +68,7 @@ cat >> quetzal/openapi_client/__init__.py <<EOF
 __openapi_generator_cli_version__ = "${REFERENCE}"
 EOF
 
+echo "Fixing README.md..."
 if [[ -z ${GIT_REPO_ID} ]]
 then
     echo "GIT_REPO_ID not defined, README.md will have some weird references."
@@ -81,3 +82,22 @@ then
 else
     sed -i '' -e 's/GIT_USER_ID/'"$GIT_USER_ID"'/g' ./README.md
 fi
+
+# echo "Fixing documentation..."
+# mkdir -p docs/sphinx/source/autogen
+
+# echo "Converting README.md -> docs/sphinx/source/autogen/README.rst"
+# #sed -e "s/docs\/(\(.*\).md/\1/g" < README.md | 
+# #sed -e "s/(docs\/.*\.md\#\(.*\))/(\1)/g" < README.md | 
+# sed -e "s/(docs\/\(.*\).md)/(\1.html)/g" < README.md | \
+#     sed -e "s/(docs\/\(.*\).md\#\(.*\))/(\1.html\#\2)/g" | \
+#     pandoc --to=rst --base-header-level=2 --columns 1000 --output docs/sphinx/source/autogen/README.rst
+
+# for filename in docs/*.md
+# do
+#     rst_filename="docs/sphinx/source/autogen/$(basename ${filename} .md).rst"
+#     echo "Converting ${filename} -> ${rst_filename}"
+#     #sed -e "s/(\(.*\).md/\1/g" < ${filename} | \
+#     pandoc --to=rst --base-header-level=2 --columns 1000 --output ${rst_filename} < ${filename}
+# done
+
