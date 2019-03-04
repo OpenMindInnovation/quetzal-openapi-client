@@ -3,7 +3,7 @@ Auto-generation instructions
 
 1. Set environment variables:
 ```
-export GIT_USER_ID=dojeda
+export GIT_USER_ID=quetz-al
 export GIT_REPO_ID=quetzal-openapi-client
 ```
 2. Run auto-generator script `./generate.sh`.
