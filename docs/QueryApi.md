@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Prepare a query.
 
-Queries in Quetzal are saved as a resource associated to a workspace. This endpoint creates one and responds with a _see other_ status referencing the query details endpoint.  Since the query details contains the query results as a paginated list, this endpoint also accepts the normal pagination parameters.
+Queries in Quetzal are saved as a resource associated to a workspace. This endpoint creates one and responds with a *see other* status referencing the query details endpoint.  Since the query details contains the query results as a paginated list, this endpoint also accepts the normal pagination parameters.
 
 ### Example
 

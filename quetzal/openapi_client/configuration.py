@@ -257,10 +257,6 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
                 'description': "Staging server",
             },
             {
-                'url': "https://devel.quetz.al/api/v1",
-                'description': "Development server",
-            },
-            {
                 'url': "https://local.quetz.al/api/v1",
                 'description': "Local development data server",
             }

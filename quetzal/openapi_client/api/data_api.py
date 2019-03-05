@@ -1286,7 +1286,7 @@ class DataApi(object):
     def workspace_query_create(self, wid, query, **kwargs):  # noqa: E501
         """Prepare a query.  # noqa: E501
 
-        Queries in Quetzal are saved as a resource associated to a workspace. This endpoint creates one and responds with a _see other_ status referencing the query details endpoint.  Since the query details contains the query results as a paginated list, this endpoint also accepts the normal pagination parameters.  # noqa: E501
+        Queries in Quetzal are saved as a resource associated to a workspace. This endpoint creates one and responds with a *see other* status referencing the query details endpoint.  Since the query details contains the query results as a paginated list, this endpoint also accepts the normal pagination parameters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.workspace_query_create(wid, query, async_req=True)
@@ -1311,7 +1311,7 @@ class DataApi(object):
     def workspace_query_create_with_http_info(self, wid, query, **kwargs):  # noqa: E501
         """Prepare a query.  # noqa: E501
 
-        Queries in Quetzal are saved as a resource associated to a workspace. This endpoint creates one and responds with a _see other_ status referencing the query details endpoint.  Since the query details contains the query results as a paginated list, this endpoint also accepts the normal pagination parameters.  # noqa: E501
+        Queries in Quetzal are saved as a resource associated to a workspace. This endpoint creates one and responds with a *see other* status referencing the query details endpoint.  Since the query details contains the query results as a paginated list, this endpoint also accepts the normal pagination parameters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.workspace_query_create_with_http_info(wid, query, async_req=True)
