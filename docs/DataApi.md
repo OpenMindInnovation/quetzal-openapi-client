@@ -6,12 +6,16 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**public_file_details**](DataApi.md#public_file_details) | **GET** /data/files/{uuid} | Fetch public file.
 [**public_file_fetch**](DataApi.md#public_file_fetch) | **GET** /data/files/ | List public files.
+[**public_query_create**](DataApi.md#public_query_create) | **POST** /data/queries/ | Prepare a query.
+[**public_query_details**](DataApi.md#public_query_details) | **GET** /data/queries/{qid} | Query details.
+[**public_query_fetch**](DataApi.md#public_query_fetch) | **GET** /data/queries/ | List public queries.
 [**workspace_commit**](DataApi.md#workspace_commit) | **PUT** /data/workspaces/{wid}/commit | Commit workspace.
 [**workspace_create**](DataApi.md#workspace_create) | **POST** /data/workspaces/ | Create workspace.
 [**workspace_delete**](DataApi.md#workspace_delete) | **DELETE** /data/workspaces/{wid} | Delete workspace.
 [**workspace_details**](DataApi.md#workspace_details) | **GET** /data/workspaces/{wid} | Workspace details.
 [**workspace_fetch**](DataApi.md#workspace_fetch) | **GET** /data/workspaces/ | List workspaces.
 [**workspace_file_create**](DataApi.md#workspace_file_create) | **POST** /data/workspaces/{wid}/files/ | Upload file.
+[**workspace_file_delete**](DataApi.md#workspace_file_delete) | **DELETE** /data/workspaces/{wid}/files/{uuid} | Delete a file.
 [**workspace_file_details**](DataApi.md#workspace_file_details) | **GET** /data/workspaces/{wid}/files/{uuid} | Fetch file.
 [**workspace_file_fetch**](DataApi.md#workspace_file_fetch) | **GET** /data/workspaces/{wid}/files/ | List files.
 [**workspace_file_set_metadata**](DataApi.md#workspace_file_set_metadata) | **PUT** /data/workspaces/{wid}/files/{uuid} | Rewrite metadata.
@@ -120,6 +124,175 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PaginatedFiles**](PaginatedFiles.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/problem+json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **public_query_create**
+> Query public_query_create(query, page=page, per_page=per_page)
+
+Prepare a query.
+
+Queries in Quetzal are saved as a resource, in this case, associated with the global workspace. This endpoint creates one and responds with a *see other* status referencing the query details endpoint.  Since the query details contains the query results as a paginated list, this endpoint also accepts the normal pagination parameters.
+
+### Example
+
+* Bearer Authentication (bearer):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
+query = quetzal.openapi_client.Query() # Query | 
+page = 1 # int | The page of a collection to return. (optional) (default to 1)
+per_page = 100 # int | Number of items to return per page. (optional) (default to 100)
+
+try:
+    # Prepare a query.
+    api_response = api_instance.public_query_create(query, page=page, per_page=per_page)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DataApi->public_query_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | [**Query**](Query.md)|  | 
+ **page** | **int**| The page of a collection to return. | [optional] [default to 1]
+ **per_page** | **int**| Number of items to return per page. | [optional] [default to 100]
+
+### Return type
+
+[**Query**](Query.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, application/problem+json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **public_query_details**
+> Query public_query_details(qid, page=page, per_page=per_page)
+
+Query details.
+
+The details of a query, which contains the query itself and a paginated list of its results.
+
+### Example
+
+* Bearer Authentication (bearer):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
+qid = 56 # int | Query identifier
+page = 1 # int | The page of a collection to return. (optional) (default to 1)
+per_page = 100 # int | Number of items to return per page. (optional) (default to 100)
+
+try:
+    # Query details.
+    api_response = api_instance.public_query_details(qid, page=page, per_page=per_page)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DataApi->public_query_details: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **qid** | **int**| Query identifier | 
+ **page** | **int**| The page of a collection to return. | [optional] [default to 1]
+ **per_page** | **int**| Number of items to return per page. | [optional] [default to 100]
+
+### Return type
+
+[**Query**](Query.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/problem+json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **public_query_fetch**
+> PaginatedQueries public_query_fetch(page=page, per_page=per_page)
+
+List public queries.
+
+List all the queries that are associated with the global workspace. Note that each query listed here is shown _without_ its results, for brevity.
+
+### Example
+
+* Bearer Authentication (bearer):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
+page = 1 # int | The page of a collection to return. (optional) (default to 1)
+per_page = 100 # int | Number of items to return per page. (optional) (default to 100)
+
+try:
+    # List public queries.
+    api_response = api_instance.public_query_fetch(page=page, per_page=per_page)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DataApi->public_query_fetch: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**| The page of a collection to return. | [optional] [default to 1]
+ **per_page** | **int**| Number of items to return per page. | [optional] [default to 100]
+
+### Return type
+
+[**PaginatedQueries**](PaginatedQueries.md)
 
 ### Authorization
 
@@ -405,7 +578,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **workspace_file_create**
-> BaseMetadata workspace_file_create(wid, content=content)
+> BaseMetadata workspace_file_create(wid, path=path, temporary=temporary, content=content)
 
 Upload file.
 
@@ -427,11 +600,13 @@ configuration.access_token = 'YOUR_BEARER_TOKEN'
 # create an instance of the API class
 api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
 wid = 56 # int | Workspace identifier.
+path = study/s001 # str | Path for the filename that will be set on the base metadata. This parameter is provided as a workaround to the fact that files are usually uploaded without their complete path on the filename field of the form-data request. (optional)
+temporary = True # bool | True when the uploaded file is a temporary file. (optional)
 content = '/path/to/file' # file | File contents in binary. (optional)
 
 try:
     # Upload file.
-    api_response = api_instance.workspace_file_create(wid, content=content)
+    api_response = api_instance.workspace_file_create(wid, path=path, temporary=temporary, content=content)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DataApi->workspace_file_create: %s\n" % e)
@@ -442,6 +617,8 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **wid** | **int**| Workspace identifier. | 
+ **path** | **str**| Path for the filename that will be set on the base metadata. This parameter is provided as a workaround to the fact that files are usually uploaded without their complete path on the filename field of the form-data request. | [optional] 
+ **temporary** | **bool**| True when the uploaded file is a temporary file. | [optional] 
  **content** | **file**| File contents in binary. | [optional] 
 
 ### Return type
@@ -456,6 +633,60 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json, application/problem+json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **workspace_file_delete**
+> workspace_file_delete(wid, uuid)
+
+Delete a file.
+
+Marks a file for deletion. File deletion will only occur when the workspace is committed. This operation will set the base metadata \"state\" to \"deleted\". Note that, in order to delete a file, the workspace must have access to all the families related to the file. In other words, if a file has metadata on families `base`, `foo` and `bar`, then the workspace of this operation must have these three families. Otherwise, this operation returns an error.
+
+### Example
+
+* Bearer Authentication (bearer):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
+wid = 56 # int | Workspace identifier.
+uuid = 'uuid_example' # str | File identifier
+
+try:
+    # Delete a file.
+    api_instance.workspace_file_delete(wid, uuid)
+except ApiException as e:
+    print("Exception when calling DataApi->workspace_file_delete: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **wid** | **int**| Workspace identifier. | 
+ **uuid** | [**str**](.md)| File identifier | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/problem+json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

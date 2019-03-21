@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | File identifier. | 
 **url** | **str** | File URL on Quetzal&#39;s data bucket. | 
+**state** | **str** | File status. | 
 **path** | **str** | Path of the file. | 
 **filename** | **str** | File name. This does not include its path. | 
 **checksum** | **str** | MD5 checksum of the file in hexadecimal string. | 

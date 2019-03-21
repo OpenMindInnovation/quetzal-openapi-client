@@ -6,6 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**public_file_details**](PublicApi.md#public_file_details) | **GET** /data/files/{uuid} | Fetch public file.
 [**public_file_fetch**](PublicApi.md#public_file_fetch) | **GET** /data/files/ | List public files.
+[**public_query_create**](PublicApi.md#public_query_create) | **POST** /data/queries/ | Prepare a query.
+[**public_query_fetch**](PublicApi.md#public_query_fetch) | **GET** /data/queries/ | List public queries.
 [**workspace_create**](PublicApi.md#workspace_create) | **POST** /data/workspaces/ | Create workspace.
 [**workspace_fetch**](PublicApi.md#workspace_fetch) | **GET** /data/workspaces/ | List workspaces.
 
@@ -108,6 +110,118 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PaginatedFiles**](PaginatedFiles.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/problem+json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **public_query_create**
+> Query public_query_create(query, page=page, per_page=per_page)
+
+Prepare a query.
+
+Queries in Quetzal are saved as a resource, in this case, associated with the global workspace. This endpoint creates one and responds with a *see other* status referencing the query details endpoint.  Since the query details contains the query results as a paginated list, this endpoint also accepts the normal pagination parameters.
+
+### Example
+
+* Bearer Authentication (bearer):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.PublicApi(quetzal.openapi_client.ApiClient(configuration))
+query = quetzal.openapi_client.Query() # Query | 
+page = 1 # int | The page of a collection to return. (optional) (default to 1)
+per_page = 100 # int | Number of items to return per page. (optional) (default to 100)
+
+try:
+    # Prepare a query.
+    api_response = api_instance.public_query_create(query, page=page, per_page=per_page)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PublicApi->public_query_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | [**Query**](Query.md)|  | 
+ **page** | **int**| The page of a collection to return. | [optional] [default to 1]
+ **per_page** | **int**| Number of items to return per page. | [optional] [default to 100]
+
+### Return type
+
+[**Query**](Query.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, application/problem+json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **public_query_fetch**
+> PaginatedQueries public_query_fetch(page=page, per_page=per_page)
+
+List public queries.
+
+List all the queries that are associated with the global workspace. Note that each query listed here is shown _without_ its results, for brevity.
+
+### Example
+
+* Bearer Authentication (bearer):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.PublicApi(quetzal.openapi_client.ApiClient(configuration))
+page = 1 # int | The page of a collection to return. (optional) (default to 1)
+per_page = 100 # int | Number of items to return per page. (optional) (default to 100)
+
+try:
+    # List public queries.
+    api_response = api_instance.public_query_fetch(page=page, per_page=per_page)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PublicApi->public_query_fetch: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**| The page of a collection to return. | [optional] [default to 1]
+ **per_page** | **int**| Number of items to return per page. | [optional] [default to 100]
+
+### Return type
+
+[**PaginatedQueries**](PaginatedQueries.md)
 
 ### Authorization
 

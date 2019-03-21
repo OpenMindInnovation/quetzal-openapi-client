@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | Query identifier | 
-**workspace_id** | **int** | Workspace identifier where the query operates | [optional] 
+**workspace_id** | **int** | Workspace identifier where the query operates. Null when the query uses the global committed metadata. | [optional] 
 **dialect** | **str** | Dialect of query | 
 **query** | **str** | Query in code as needed by the dialect | 
 **page** | **int** | Current page number | [optional] 
