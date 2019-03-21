@@ -33,6 +33,7 @@ setup(
     keywords=["OpenAPI", "OpenAPI-Generator", "Quetzal API"],
     install_requires=REQUIRES,
     packages=find_packages(),
+    namespace_packages=['quetzal'],
     include_package_data=True,
     long_description="""\
     Quetzal: an API to manage data files and their associated metadata.  # noqa: E501
