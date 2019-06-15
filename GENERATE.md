@@ -12,7 +12,8 @@ Auto-generation instructions
 
    * The `.gitignore` file, which is rewritten by the auto-generator.
    * The `setup.py`, which should have the `namespace_packages=['quetzal']`
-     keyword parameter.
+     keyword parameter. Also, the `VERSION` variable needs to be
+     **changed manually**.
 4. (Optional, can be done manually). Commit/push changes with 
    `./git_push.sh $GIT_USER_ID $GIT_REPO_ID "<your commit message>"`
 5. (Optional, can be done manually through github) tag a release and push the 
