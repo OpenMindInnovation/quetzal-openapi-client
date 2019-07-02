@@ -2,7 +2,7 @@
 
 set -e
 
-QUETZAL_URL="https://local.quetz.al/api/v1/openapi.json"
+QUETZAL_URL="https://quetz.al/api/v1/openapi.json"
 WORK_DIR=$(mktemp -d /tmp/quetzal-client-generator.XXXXXX)
 
 # Generate with a docker image of the openapi-generator-cli project, or with a
