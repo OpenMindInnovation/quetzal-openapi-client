@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "0.1.0"
+__version__ = "0.3.1"
 
 # import apis into sdk package
 from quetzal.openapi_client.api.authentication_api import AuthenticationApi
