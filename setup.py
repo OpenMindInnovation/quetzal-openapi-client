@@ -14,7 +14,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "quetzal-openapi-client"
-VERSION = "0.3.0"
+VERSION = "0.3.1"
 # To install the library, run the following
 #
 # python setup.py install
@@ -27,9 +27,9 @@ REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil"]
 setup(
     name=NAME,
     version=VERSION,
-    description="Quetzal API",
+    description="Quetzal API auto-generated client",
     author_email="support@quetz.al",
-    url="",
+    url="http://github.com/quet.zal/quetzal-openapi-client",
     keywords=["OpenAPI", "OpenAPI-Generator", "Quetzal API"],
     install_requires=REQUIRES,
     packages=find_packages(),
@@ -37,5 +37,9 @@ setup(
     include_package_data=True,
     long_description="""\
     Quetzal: an API to manage data files and their associated metadata.
+
+    This is an auto-generated package using openapi-generator from a openapi
+    specification. An improvement layer on this client exists in the
+    quetzal-client package.
     """
 )
