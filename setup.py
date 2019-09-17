@@ -36,6 +36,6 @@ setup(
     namespace_packages=['quetzal'],
     include_package_data=True,
     long_description="""\
-    Quetzal: an API to manage data files and their associated metadata.  # noqa: E501
+    Quetzal: an API to manage data files and their associated metadata.
     """
 )
