@@ -22,3 +22,17 @@ Auto-generation instructions
     git tag -a vX.Y.Z -m "<Some meaningful tag message>"
     git push --tags
     ```
+6. (Optional) Build and push a new package to PyPI test first:
+
+    ```
+    rm -rf dist
+    python setup.py sdist bdist_wheel
+    python -m twine upload --verbose --repository-url https://test.pypi.org/legacy/ dist/*
+    ```
+   
+   Then, after verifying that this worked correctly, upload to the real PyPI
+   servers:
+   
+   ```
+   python -m twine upload dist/*
+   ```

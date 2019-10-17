@@ -35,6 +35,34 @@ This endpoint can be used to fetch the file contents or its metadata. The type o
 
 ### Example
 
+* Api Key Authentication (apiKey):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
+uuid = 'uuid_example' # str | File identifier
+
+try:
+    # Fetch public file.
+    api_response = api_instance.public_file_details(uuid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DataApi->public_file_details: %s\n" % e)
+```
+
 * Bearer Authentication (bearer):
 ```python
 from __future__ import print_function
@@ -42,6 +70,11 @@ import time
 import quetzal.openapi_client
 from quetzal.openapi_client.rest import ApiException
 from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
 configuration = quetzal.openapi_client.Configuration()
 # Configure Bearer authorization: bearer
 configuration.access_token = 'YOUR_BEARER_TOKEN'
@@ -70,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[apiKey](../README.md#apiKey), [bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -88,6 +121,36 @@ Fetches all the files that have been committed.  The file details included in th
 
 ### Example
 
+* Api Key Authentication (apiKey):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
+page = 1 # int | The page of a collection to return. (optional) (default to 1)
+per_page = 100 # int | Number of items to return per page. (optional) (default to 100)
+filters = filename=foo.png,path=images,size=12314 # str | Filters on the workspace files, separated by commas. These filters are applied only the base metadata family. This can be used to get a file by name, path, size or checksum. (optional)
+
+try:
+    # List public files.
+    api_response = api_instance.public_file_fetch(page=page, per_page=per_page, filters=filters)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DataApi->public_file_fetch: %s\n" % e)
+```
+
 * Bearer Authentication (bearer):
 ```python
 from __future__ import print_function
@@ -95,6 +158,11 @@ import time
 import quetzal.openapi_client
 from quetzal.openapi_client.rest import ApiException
 from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
 configuration = quetzal.openapi_client.Configuration()
 # Configure Bearer authorization: bearer
 configuration.access_token = 'YOUR_BEARER_TOKEN'
@@ -127,7 +195,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[apiKey](../README.md#apiKey), [bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -145,6 +213,36 @@ Queries in Quetzal are saved as a resource, in this case, associated with the gl
 
 ### Example
 
+* Api Key Authentication (apiKey):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
+query = quetzal.openapi_client.Query() # Query | 
+page = 1 # int | The page of a collection to return. (optional) (default to 1)
+per_page = 100 # int | Number of items to return per page. (optional) (default to 100)
+
+try:
+    # Prepare a query.
+    api_response = api_instance.public_query_create(query, page=page, per_page=per_page)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DataApi->public_query_create: %s\n" % e)
+```
+
 * Bearer Authentication (bearer):
 ```python
 from __future__ import print_function
@@ -152,6 +250,11 @@ import time
 import quetzal.openapi_client
 from quetzal.openapi_client.rest import ApiException
 from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
 configuration = quetzal.openapi_client.Configuration()
 # Configure Bearer authorization: bearer
 configuration.access_token = 'YOUR_BEARER_TOKEN'
@@ -184,7 +287,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[apiKey](../README.md#apiKey), [bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -202,6 +305,36 @@ The details of a query, which contains the query itself and a paginated list of 
 
 ### Example
 
+* Api Key Authentication (apiKey):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
+qid = 56 # int | Query identifier
+page = 1 # int | The page of a collection to return. (optional) (default to 1)
+per_page = 100 # int | Number of items to return per page. (optional) (default to 100)
+
+try:
+    # Query details.
+    api_response = api_instance.public_query_details(qid, page=page, per_page=per_page)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DataApi->public_query_details: %s\n" % e)
+```
+
 * Bearer Authentication (bearer):
 ```python
 from __future__ import print_function
@@ -209,6 +342,11 @@ import time
 import quetzal.openapi_client
 from quetzal.openapi_client.rest import ApiException
 from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
 configuration = quetzal.openapi_client.Configuration()
 # Configure Bearer authorization: bearer
 configuration.access_token = 'YOUR_BEARER_TOKEN'
@@ -241,7 +379,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[apiKey](../README.md#apiKey), [bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -259,6 +397,35 @@ List all the queries that are associated with the global workspace. Note that ea
 
 ### Example
 
+* Api Key Authentication (apiKey):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
+page = 1 # int | The page of a collection to return. (optional) (default to 1)
+per_page = 100 # int | Number of items to return per page. (optional) (default to 100)
+
+try:
+    # List public queries.
+    api_response = api_instance.public_query_fetch(page=page, per_page=per_page)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DataApi->public_query_fetch: %s\n" % e)
+```
+
 * Bearer Authentication (bearer):
 ```python
 from __future__ import print_function
@@ -266,6 +433,11 @@ import time
 import quetzal.openapi_client
 from quetzal.openapi_client.rest import ApiException
 from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
 configuration = quetzal.openapi_client.Configuration()
 # Configure Bearer authorization: bearer
 configuration.access_token = 'YOUR_BEARER_TOKEN'
@@ -296,7 +468,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[apiKey](../README.md#apiKey), [bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -314,6 +486,34 @@ Requests a workspace commit. That is, all metadata added or modified in this wor
 
 ### Example
 
+* Api Key Authentication (apiKey):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
+wid = 56 # int | Workspace identifier.
+
+try:
+    # Commit workspace.
+    api_response = api_instance.workspace_commit(wid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DataApi->workspace_commit: %s\n" % e)
+```
+
 * Bearer Authentication (bearer):
 ```python
 from __future__ import print_function
@@ -321,6 +521,11 @@ import time
 import quetzal.openapi_client
 from quetzal.openapi_client.rest import ApiException
 from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
 configuration = quetzal.openapi_client.Configuration()
 # Configure Bearer authorization: bearer
 configuration.access_token = 'YOUR_BEARER_TOKEN'
@@ -349,7 +554,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[apiKey](../README.md#apiKey), [bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -367,6 +572,34 @@ Create a workspace, which initializes the basic resources and information associ
 
 ### Example
 
+* Api Key Authentication (apiKey):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
+workspace = quetzal.openapi_client.Workspace() # Workspace | 
+
+try:
+    # Create workspace.
+    api_response = api_instance.workspace_create(workspace)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DataApi->workspace_create: %s\n" % e)
+```
+
 * Bearer Authentication (bearer):
 ```python
 from __future__ import print_function
@@ -374,6 +607,11 @@ import time
 import quetzal.openapi_client
 from quetzal.openapi_client.rest import ApiException
 from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
 configuration = quetzal.openapi_client.Configuration()
 # Configure Bearer authorization: bearer
 configuration.access_token = 'YOUR_BEARER_TOKEN'
@@ -402,7 +640,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[apiKey](../README.md#apiKey), [bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -420,6 +658,33 @@ Marks a workspace for deletion. Workspaces cannot be immediately deleted, due to
 
 ### Example
 
+* Api Key Authentication (apiKey):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
+wid = 56 # int | Workspace identifier.
+
+try:
+    # Delete workspace.
+    api_instance.workspace_delete(wid)
+except ApiException as e:
+    print("Exception when calling DataApi->workspace_delete: %s\n" % e)
+```
+
 * Bearer Authentication (bearer):
 ```python
 from __future__ import print_function
@@ -427,6 +692,11 @@ import time
 import quetzal.openapi_client
 from quetzal.openapi_client.rest import ApiException
 from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
 configuration = quetzal.openapi_client.Configuration()
 # Configure Bearer authorization: bearer
 configuration.access_token = 'YOUR_BEARER_TOKEN'
@@ -454,7 +724,7 @@ void (empty response body)
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[apiKey](../README.md#apiKey), [bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -472,6 +742,34 @@ Obtain all information of a workspace.
 
 ### Example
 
+* Api Key Authentication (apiKey):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
+wid = 56 # int | Workspace identifier.
+
+try:
+    # Workspace details.
+    api_response = api_instance.workspace_details(wid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DataApi->workspace_details: %s\n" % e)
+```
+
 * Bearer Authentication (bearer):
 ```python
 from __future__ import print_function
@@ -479,6 +777,11 @@ import time
 import quetzal.openapi_client
 from quetzal.openapi_client.rest import ApiException
 from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
 configuration = quetzal.openapi_client.Configuration()
 # Configure Bearer authorization: bearer
 configuration.access_token = 'YOUR_BEARER_TOKEN'
@@ -507,7 +810,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[apiKey](../README.md#apiKey), [bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -525,6 +828,38 @@ List workspace details. Optionally, filter workspaces according to their name, o
 
 ### Example
 
+* Api Key Authentication (apiKey):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
+page = 1 # int | The page of a collection to return. (optional) (default to 1)
+per_page = 100 # int | Number of items to return per page. (optional) (default to 100)
+name = 'name_example' # str | Filter workspaces by name (optional)
+owner = 'owner_example' # str | Filter workspaces by owner (optional)
+deleted = True # bool | Include deleted workspaces (optional)
+
+try:
+    # List workspaces.
+    api_response = api_instance.workspace_fetch(page=page, per_page=per_page, name=name, owner=owner, deleted=deleted)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DataApi->workspace_fetch: %s\n" % e)
+```
+
 * Bearer Authentication (bearer):
 ```python
 from __future__ import print_function
@@ -532,6 +867,11 @@ import time
 import quetzal.openapi_client
 from quetzal.openapi_client.rest import ApiException
 from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
 configuration = quetzal.openapi_client.Configuration()
 # Configure Bearer authorization: bearer
 configuration.access_token = 'YOUR_BEARER_TOKEN'
@@ -568,7 +908,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[apiKey](../README.md#apiKey), [bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -586,6 +926,37 @@ Upload a new file to a workspace by sending its contents. The file will not have
 
 ### Example
 
+* Api Key Authentication (apiKey):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
+wid = 56 # int | Workspace identifier.
+path = study/s001 # str | Path for the filename that will be set on the base metadata. This parameter is provided as a workaround to the fact that files are usually uploaded without their complete path on the filename field of the form-data request. (optional)
+temporary = True # bool | True when the uploaded file is a temporary file. (optional)
+content = '/path/to/file' # file | File contents in binary. (optional)
+
+try:
+    # Upload file.
+    api_response = api_instance.workspace_file_create(wid, path=path, temporary=temporary, content=content)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DataApi->workspace_file_create: %s\n" % e)
+```
+
 * Bearer Authentication (bearer):
 ```python
 from __future__ import print_function
@@ -593,6 +964,11 @@ import time
 import quetzal.openapi_client
 from quetzal.openapi_client.rest import ApiException
 from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
 configuration = quetzal.openapi_client.Configuration()
 # Configure Bearer authorization: bearer
 configuration.access_token = 'YOUR_BEARER_TOKEN'
@@ -627,7 +1003,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[apiKey](../README.md#apiKey), [bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -645,6 +1021,34 @@ Marks a file for deletion. File deletion will only occur when the workspace is c
 
 ### Example
 
+* Api Key Authentication (apiKey):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
+wid = 56 # int | Workspace identifier.
+uuid = 'uuid_example' # str | File identifier
+
+try:
+    # Delete a file.
+    api_instance.workspace_file_delete(wid, uuid)
+except ApiException as e:
+    print("Exception when calling DataApi->workspace_file_delete: %s\n" % e)
+```
+
 * Bearer Authentication (bearer):
 ```python
 from __future__ import print_function
@@ -652,6 +1056,11 @@ import time
 import quetzal.openapi_client
 from quetzal.openapi_client.rest import ApiException
 from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
 configuration = quetzal.openapi_client.Configuration()
 # Configure Bearer authorization: bearer
 configuration.access_token = 'YOUR_BEARER_TOKEN'
@@ -681,7 +1090,7 @@ void (empty response body)
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[apiKey](../README.md#apiKey), [bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -699,6 +1108,35 @@ Serves the file contents or its metadata, according to the accepted content resp
 
 ### Example
 
+* Api Key Authentication (apiKey):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
+wid = 56 # int | Workspace identifier.
+uuid = 'uuid_example' # str | File identifier
+
+try:
+    # Fetch file.
+    api_response = api_instance.workspace_file_details(wid, uuid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DataApi->workspace_file_details: %s\n" % e)
+```
+
 * Bearer Authentication (bearer):
 ```python
 from __future__ import print_function
@@ -706,6 +1144,11 @@ import time
 import quetzal.openapi_client
 from quetzal.openapi_client.rest import ApiException
 from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
 configuration = quetzal.openapi_client.Configuration()
 # Configure Bearer authorization: bearer
 configuration.access_token = 'YOUR_BEARER_TOKEN'
@@ -736,7 +1179,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[apiKey](../README.md#apiKey), [bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -754,6 +1197,37 @@ Fetches all the files that have been added in this workspace. Files whose metada
 
 ### Example
 
+* Api Key Authentication (apiKey):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
+wid = 56 # int | Workspace identifier.
+page = 1 # int | The page of a collection to return. (optional) (default to 1)
+per_page = 100 # int | Number of items to return per page. (optional) (default to 100)
+filters = filename=foo.png,path=images,size=12314 # str | Filters on the workspace files, separated by commas. These filters are applied only the base metadata family. This can be used to get a file by name, path, size or checksum. (optional)
+
+try:
+    # List files.
+    api_response = api_instance.workspace_file_fetch(wid, page=page, per_page=per_page, filters=filters)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DataApi->workspace_file_fetch: %s\n" % e)
+```
+
 * Bearer Authentication (bearer):
 ```python
 from __future__ import print_function
@@ -761,6 +1235,11 @@ import time
 import quetzal.openapi_client
 from quetzal.openapi_client.rest import ApiException
 from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
 configuration = quetzal.openapi_client.Configuration()
 # Configure Bearer authorization: bearer
 configuration.access_token = 'YOUR_BEARER_TOKEN'
@@ -795,7 +1274,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[apiKey](../README.md#apiKey), [bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -813,6 +1292,36 @@ Change the file metadata entirely. In contrast to the PATCH method to on this en
 
 ### Example
 
+* Api Key Authentication (apiKey):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
+wid = 56 # int | Workspace identifier.
+uuid = 'uuid_example' # str | File identifier
+metadata_by_family = quetzal.openapi_client.MetadataByFamily() # MetadataByFamily |  (optional)
+
+try:
+    # Rewrite metadata.
+    api_response = api_instance.workspace_file_set_metadata(wid, uuid, metadata_by_family=metadata_by_family)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DataApi->workspace_file_set_metadata: %s\n" % e)
+```
+
 * Bearer Authentication (bearer):
 ```python
 from __future__ import print_function
@@ -820,6 +1329,11 @@ import time
 import quetzal.openapi_client
 from quetzal.openapi_client.rest import ApiException
 from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
 configuration = quetzal.openapi_client.Configuration()
 # Configure Bearer authorization: bearer
 configuration.access_token = 'YOUR_BEARER_TOKEN'
@@ -852,7 +1366,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[apiKey](../README.md#apiKey), [bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -870,6 +1384,36 @@ Change the file metadata by updating it. Updating metadata changes key/value pai
 
 ### Example
 
+* Api Key Authentication (apiKey):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
+wid = 56 # int | Workspace identifier.
+uuid = 'uuid_example' # str | File identifier
+metadata_by_family = quetzal.openapi_client.MetadataByFamily() # MetadataByFamily |  (optional)
+
+try:
+    # Modify metadata.
+    api_response = api_instance.workspace_file_update_metadata(wid, uuid, metadata_by_family=metadata_by_family)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DataApi->workspace_file_update_metadata: %s\n" % e)
+```
+
 * Bearer Authentication (bearer):
 ```python
 from __future__ import print_function
@@ -877,6 +1421,11 @@ import time
 import quetzal.openapi_client
 from quetzal.openapi_client.rest import ApiException
 from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
 configuration = quetzal.openapi_client.Configuration()
 # Configure Bearer authorization: bearer
 configuration.access_token = 'YOUR_BEARER_TOKEN'
@@ -909,7 +1458,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[apiKey](../README.md#apiKey), [bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -927,6 +1476,37 @@ Queries in Quetzal are saved as a resource associated to a workspace. This endpo
 
 ### Example
 
+* Api Key Authentication (apiKey):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
+wid = 56 # int | Workspace identifier.
+query = quetzal.openapi_client.Query() # Query | 
+page = 1 # int | The page of a collection to return. (optional) (default to 1)
+per_page = 100 # int | Number of items to return per page. (optional) (default to 100)
+
+try:
+    # Prepare a query.
+    api_response = api_instance.workspace_query_create(wid, query, page=page, per_page=per_page)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DataApi->workspace_query_create: %s\n" % e)
+```
+
 * Bearer Authentication (bearer):
 ```python
 from __future__ import print_function
@@ -934,6 +1514,11 @@ import time
 import quetzal.openapi_client
 from quetzal.openapi_client.rest import ApiException
 from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
 configuration = quetzal.openapi_client.Configuration()
 # Configure Bearer authorization: bearer
 configuration.access_token = 'YOUR_BEARER_TOKEN'
@@ -968,7 +1553,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[apiKey](../README.md#apiKey), [bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -986,6 +1571,37 @@ The details of a query, which contains the query itself and a paginated list of 
 
 ### Example
 
+* Api Key Authentication (apiKey):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
+wid = 56 # int | Workspace identifier.
+qid = 56 # int | Query identifier
+page = 1 # int | The page of a collection to return. (optional) (default to 1)
+per_page = 100 # int | Number of items to return per page. (optional) (default to 100)
+
+try:
+    # Query details.
+    api_response = api_instance.workspace_query_details(wid, qid, page=page, per_page=per_page)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DataApi->workspace_query_details: %s\n" % e)
+```
+
 * Bearer Authentication (bearer):
 ```python
 from __future__ import print_function
@@ -993,6 +1609,11 @@ import time
 import quetzal.openapi_client
 from quetzal.openapi_client.rest import ApiException
 from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
 configuration = quetzal.openapi_client.Configuration()
 # Configure Bearer authorization: bearer
 configuration.access_token = 'YOUR_BEARER_TOKEN'
@@ -1027,7 +1648,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[apiKey](../README.md#apiKey), [bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -1045,6 +1666,36 @@ List all the queries that are associated with a workspace. Note that each query 
 
 ### Example
 
+* Api Key Authentication (apiKey):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
+wid = 56 # int | Workspace identifier.
+page = 1 # int | The page of a collection to return. (optional) (default to 1)
+per_page = 100 # int | Number of items to return per page. (optional) (default to 100)
+
+try:
+    # List queries.
+    api_response = api_instance.workspace_query_fetch(wid, page=page, per_page=per_page)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DataApi->workspace_query_fetch: %s\n" % e)
+```
+
 * Bearer Authentication (bearer):
 ```python
 from __future__ import print_function
@@ -1052,6 +1703,11 @@ import time
 import quetzal.openapi_client
 from quetzal.openapi_client.rest import ApiException
 from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
 configuration = quetzal.openapi_client.Configuration()
 # Configure Bearer authorization: bearer
 configuration.access_token = 'YOUR_BEARER_TOKEN'
@@ -1084,7 +1740,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[apiKey](../README.md#apiKey), [bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -1102,6 +1758,34 @@ Requests the update of the views of a workspace. All the internal databases used
 
 ### Example
 
+* Api Key Authentication (apiKey):
+```python
+from __future__ import print_function
+import time
+import quetzal.openapi_client
+from quetzal.openapi_client.rest import ApiException
+from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+configuration = quetzal.openapi_client.Configuration()
+# Configure Bearer authorization: bearer
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+
+# create an instance of the API class
+api_instance = quetzal.openapi_client.DataApi(quetzal.openapi_client.ApiClient(configuration))
+wid = 56 # int | Workspace identifier.
+
+try:
+    # Update views.
+    api_response = api_instance.workspace_scan(wid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DataApi->workspace_scan: %s\n" % e)
+```
+
 * Bearer Authentication (bearer):
 ```python
 from __future__ import print_function
@@ -1109,6 +1793,11 @@ import time
 import quetzal.openapi_client
 from quetzal.openapi_client.rest import ApiException
 from pprint import pprint
+configuration = quetzal.openapi_client.Configuration()
+# Configure API key authorization: apiKey
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
 configuration = quetzal.openapi_client.Configuration()
 # Configure Bearer authorization: bearer
 configuration.access_token = 'YOUR_BEARER_TOKEN'
@@ -1137,7 +1826,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[apiKey](../README.md#apiKey), [bearer](../README.md#bearer)
 
 ### HTTP request headers
 

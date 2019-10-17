@@ -10,6 +10,11 @@ Until a first official version 1.0.0 is released, this project is considered in
 a *beta* stage. Major.minor version numbers will follow the Quetzal API
 version.
 
+0.5.0 (2019-10-17)
+------------------
+
+* Update to API version 0.5.0.
+
 0.3.1 (2019-09-17)
 ------------------
 
